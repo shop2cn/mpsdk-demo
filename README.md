@@ -1,1 +1,1 @@
-hello world!
+#### shop2cn minimap sdk demo!

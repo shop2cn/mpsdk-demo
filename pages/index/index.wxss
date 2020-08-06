@@ -1,0 +1,14 @@
+/* pages/index/index.wxss */
+.wrap {
+  margin: 0;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+button {
+  margin: 0;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  width: 100%;
+}
+

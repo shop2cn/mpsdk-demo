@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "hello-list": "plugin://shop2cn-buyer-plugin/hello-component",
+    "paytype": "plugin://shop2cn-buyer-plugin/payType"
+  }
+}
