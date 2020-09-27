@@ -1,15 +1,13 @@
-<view class="wrap">
-  <button type="primary" bindtap="gotoHome">跳转到首页</button>
+<button bindtap="gotoHome">跳转到首页</button>
 
-  <button type="primary" bindtap="gotoCart">跳转到购物车</button>
+<button bindtap="gotoCart">跳转到购物车</button>
 
-  <button type="primary" bindtap="gotoProduct">跳转到商品详情页</button>
+<button bindtap="gotoProduct">跳转到商品详情页</button>
 
-  <button type="primary" bindtap="gotoOrderList">跳转到订单列表</button>
+<button bindtap="gotoOrderList">跳转到订单列表</button>
 
-  <button type="primary" bindtap="gotoCategory">跳转到分类页面</button>
+<button bindtap="gotoCategory">跳转到分类页面</button>
 
-  <button type="primary" bindtap="gotoSearch">跳转到搜索</button>
+<button bindtap="gotoSearch">跳转到搜索</button>
 
-  <button type="primary" bindtap="gotoMoneyOff">跳转到限时抢活动</button>
-</view>
+<button bindtap="gotoSpec">跳转到专题页面</button>

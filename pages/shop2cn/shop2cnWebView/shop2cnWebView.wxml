@@ -1,1 +1,2 @@
+<!-- shop2cnWebView.wxml -->
 <web-view src="{{url}}"></web-view>

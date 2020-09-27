@@ -1,4 +1,4 @@
-// shop2cnBuyerPluginWebView.js
+// shop2cnWebView.js
 Page({
   data: {
     url: ""

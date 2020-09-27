@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的订单",
+  "usingComponents": {
+    "orderList": "plugin://shop2cn-buyer-plugin/orderList"
+  }
+}

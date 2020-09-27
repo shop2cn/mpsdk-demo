@@ -1,0 +1,37 @@
+<wxs module="currency">
+  var isJPY = function (symbol) {
+    symbol = '' + symbol;
+    return symbol.indexOf('日元') > -1;
+  }
+  /** 获取价格描述 */
+  var getPriceDesc = function(symbol, price, type) {
+    if (!price && type !== 1) return '';
+    var isJ = isJPY(symbol);
+    return isJ ? price + symbol : symbol + price;
+  }
+  module.exports = {isJPY : isJPY, getPriceDesc: getPriceDesc}
+</wxs>
+<view class="container">
+	<view class="top">
+		<view class="price-container">
+			<view class="symbol" wx:if="{{!currency.isJPY(extraData.symbol)}}" space="nbsp">{{extraData.symbol}} </view>
+			{{extraData.price}}
+			<view class="symbol" wx:if="{{currency.isJPY(extraData.symbol)}}" space="nbsp"> {{extraData.symbol}}</view>
+		</view>
+		<view class="exchange-rate" style="margin-bottom:4rpx;margin-top:18rpx;" wx:if="{{extraData.foreign}}" space="nbsp">约人民币：￥{{extraData.totalExchangePrice}} </view>
+		<view class="exchange-rate" wx:if="{{extraData.foreign}}" space="nbsp">预估汇率：{{currency.getPriceDesc(extraData.symbol, 1)}} = ￥{{extraData.exchangeRate}}</view>
+		<text class="time" wx:if="{{extraData.payDeadLineTime}}">支付剩余时间 {{time.h}} : {{time.m}} : {{time.s}}</text>
+	</view>
+	<view class="row">
+		<text class="hint">商品名称</text>
+		<text class="title">{{extraData.title}}</text>
+	</view>
+	<view class="line-container"><view></view></view>
+	<view class="row">
+		<text class="hint">支付方式</text>
+		<image class="wechat" src="/images/ic_wechat.png" mode="scaleToFill"></image>
+		<text style="color:#07C160;font-family: PingFangSC-Medium;">微信支付</text>
+	</view>
+	<view class="pay" bindtap='pay'>微信付款 {{currency.getPriceDesc(extraData.symbol, extraData.price)}}</view>
+
+</view>

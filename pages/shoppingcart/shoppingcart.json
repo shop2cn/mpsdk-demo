@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "自绘演示",
+  "usingComponents": {
+    "shoppingCart": "plugin://shop2cn-buyer-plugin/shoppingCart"
+  }
+}

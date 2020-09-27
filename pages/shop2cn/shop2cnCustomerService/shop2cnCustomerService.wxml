@@ -1,0 +1,6 @@
+<!--pages/shop2cnCustomerService/shop2cnCustomerService.wxml-->
+<view class="container">
+  <image class="img" src="/images/ic_customer_service.png" />
+  您好，在线客服为您服务！
+  <button  open-type="contact" class="btn">联系客服</button>
+</view>

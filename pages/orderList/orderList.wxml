@@ -1,0 +1,2 @@
+<!--miniprogram/pages/orderList/orderList.wxml-->
+<orderList tabIndex="{{0}}" isShow="{{isShow}}"/>
