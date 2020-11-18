@@ -1,5 +1,6 @@
 // shop2cnCashier.js
 var plugin = requirePlugin("shop2cn-buyer-plugin");
+
 Page({
   data: {
     time: {
@@ -26,6 +27,7 @@ Page({
     if (this.data.extraData && this.data.extraData.payDeadLineTime) {
         this.startCountDown(this.data.extraData.payDeadLineTime)
     }
+    this.checkPayResult()
   },
 
   /**
@@ -84,6 +86,7 @@ Page({
   },
 
   pay () {
+    var _this = this
     wx.navigateToMiniProgram({
       appId: this.data.appId,
       path:  this.data.path,
@@ -92,10 +95,36 @@ Page({
       success(res) {
           // 打开成功
           console.log('打开成功：' + JSON.stringify(res))
+        _this.setData({
+          needCheckPayResult: true
+        })
       },
       fail(res) {
           console.log('打开失败：' + JSON.stringify(res))
       }
+    })
+  },
+
+  checkPayResult() {
+    if (!this.data.needCheckPayResult) {
+      return
+    }
+    var _this = this
+    setTimeout(() => {
+      _this.requesPayResult()
+    }, 3000);
+  },
+
+  requesPayResult() {
+    plugin.fetch('payResult', {orderId: this.data.extraData.orderId},  data => {
+      if (data && data.pay) {
+        // 支付成功
+        plugin.navigate('orderList')
+      } else {
+        //未支付
+      }
+    }, (code, msg) => {
+
     })
   }
 });

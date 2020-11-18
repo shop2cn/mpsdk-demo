@@ -1,4 +1,3 @@
-var plugin = requirePlugin("shop2cn-buyer-plugin");
 Page({
   data: {
     items: [],
@@ -10,7 +9,6 @@ Page({
     showPayType: false
   },
   onLoad: function () {
-    plugin.init('111')
   },
 
   addItem: function () {
@@ -22,47 +20,44 @@ Page({
   },
 
   gotoHome () {
-    plugin.navigate('home')
+    wx.navigateTo({
+      url: '/shop2cnPlugin/pages/navigator/navigator?page=home'
+    })
   },
 
   gotoCart() {
-    plugin.navigate('cart')
+    wx.navigateTo({
+      url: '/shop2cnPlugin/pages/navigator/navigator?page=cart'
+    })
   },
 
   gotoProduct () {
-    plugin.navigate('product', {productId: 'p6400538'})
+    wx.navigateTo({
+      url: '/shop2cnPlugin/pages/navigator/navigator?page=product&productId=p6400538'
+    })
   },
 
   gotoOrderList() {
-    plugin.navigate('orderList')
+    wx.navigateTo({
+      url: '/shop2cnPlugin/pages/navigator/navigator?page=orderList'
+    })
   },
 
   gotoCategory() {
-    plugin.navigate('category')
+    wx.navigateTo({
+      url: '/shop2cnPlugin/pages/navigator/navigator?page=category'
+    })
   },
 
   gotoSearch() {
-    plugin.navigate('search')
+    wx.navigateTo({
+      url: '/shop2cnPlugin/pages/navigator/navigator?page=search'
+    })
   },
 
   gotoSpec() {
-    plugin.navigate('spec', {id: 55})
-  },
-
-  goToUsercenter () {
     wx.navigateTo({
-      url: "plugin://shop2cn-buyer-plugin/usercenter?mchId=500002398&accessToken=98393949DC88F83A5902A42969742505708AD2CC7C23E7E8C974A65BF0728B8089C98708C05FCB4F9DA845FB32082EF0B1988A2AC5F77EDC"
+      url: '/shop2cnPlugin/pages/navigator/navigator?page=spec&id=55'
     })
   },
-  commonWebView () {
-    var url = encodeURIComponent(`https://m.shop2cn.com/shop/500002398/integral`)
-    wx.navigateTo({
-      url: "plugin://shop2cn-buyer-plugin/commonWebView?url=p4827914&mchId=500002398"
-    })
-  },
-  login () {
-    wx.navigateTo({
-      url: "plugin://shop2cn-buyer-plugin/login"
-    })
-  }
 });

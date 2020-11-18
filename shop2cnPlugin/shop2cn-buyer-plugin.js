@@ -7,12 +7,21 @@ var navigateToWebView = function(url) {
   wx.navigateTo({url})
 }
 
+var redirectToPage = function(url) {
+  wx.redirectTo({url})
+}
+
+var redirectToWebView = function(url) {
+  var url = getWebViewPageURL(url)
+  wx.redirectTo({url})
+}
+
 /*
 * 返回宿主小程序的主页的路径给sdk，用于sdk的跳转
 * 注意：函数名不能修改，只能修改返回路径
 */
 var getHomePageURL = function () {
-  // MARK: 需要用户修改为宿主小程序自己的首页路径
+  // TODO: 需要用户修改为宿主小程序自己的首页路径
   return '/pages/index/index'
 }
 
@@ -21,8 +30,7 @@ var getHomePageURL = function () {
 * 注意：函数名不能修改，只能修改返回路径
 */
 var getLoginPageURL = function () {
-  // MARK: 需要用户修改为宿主小程序自己的登陆路径
-  return '/pages/login/login'
+  return '/shop2cnPlugin/pages/login/login'
 }
 
 /*
@@ -30,7 +38,7 @@ var getLoginPageURL = function () {
 * 注意：函数名不能修改，只能修改返回路径
 */
 var getWebViewPageURL = function (url) {
-  return `/pages/shop2cn/shop2cnWebView/shop2cnWebView?url=${encodeURIComponent(url)}`
+  return `/shop2cnPlugin/pages/webView/webView?url=${encodeURIComponent(url)}`
 }
 
 /*
@@ -38,7 +46,7 @@ var getWebViewPageURL = function (url) {
 * 注意：函数名不能修改，只能修改返回路径
 */
 var getCashierPageURL = function (params) {
-  return `/pages/shop2cn/shop2cnCashier/shop2cnCashier?extraData=${encodeURIComponent(JSON.stringify(params.extraData))}&appId=${params.appId}&path=${encodeURIComponent(params.path)}`
+  return `/shop2cnPlugin/pages/cashier/cashier?extraData=${encodeURIComponent(JSON.stringify(params.extraData))}&appId=${params.appId}&path=${encodeURIComponent(params.path)}`
 }
 
 /*
@@ -47,12 +55,14 @@ var getCashierPageURL = function (params) {
 * 注意：函数名不能修改，只能修改返回路径
 */
 var getCustomerServicePageURL = function () {
-  return '/pages/shop2cn/shop2cnCustomerService/shop2cnCustomerService'
+  return '/shop2cnPlugin/pages/customerService/customerService'
 }
 
 module.exports = {
   navigateToPage,
   navigateToWebView,
+  redirectToPage,
+  redirectToWebView,
   getHomePageURL,
   getLoginPageURL,
   getWebViewPageURL,
